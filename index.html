@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Онбординг AWS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="screen screen-1 active">
+        <img src="./resource/images/aws.png" alt="AWS Logo" class="logo">
+        <h1>Добро пожаловать в<br>Amazon Cloud Services</h1>
+        <p>Начните работу с облачными решениями AWS за несколько минут.</p>
+        <button class="btn primary" onclick="nextScreen()">Начать обучение</button>
+        <p class="login">Уже есть аккаунт? 
+            <a href="https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Faws.amazon.com%2Fmarketplace%2Fmanagement%2Fsignin%3Fstate%3DhashArgs%2523%26isauthcode%3Dtrue&client_id=arn%3Aaws%3Aiam%3A%3A015428540659%3Auser%2Faws-mp-seller-management-portal&forceMobileApp=0&code_challenge=4Zv6wyWoEiSMLaz2wifeuDMbx91Qj4sxk7K9ZC3QmSU&code_challenge_method=SHA-256">Войти</a></p>
+        <button class="btn secondary" onclick="showVideo()">▶ Посмотреть демо-ролик</button>
+      </section>
+    
+      <section class="screen screen-2">
+        <h1>Почему AWS?</h1>
+        <p>Масштабируемая, безопасная и надежная облачная платформа для любых задач.</p>
+    
+        <div class="features">
+          <div class="feature" onclick="showTip('scale')">
+            <img src="./resource/rocket.png" alt="Scale Icon">
+            <span>Мгновенное масштабирование</span>
+          </div>
+          <div class="feature" onclick="showTip('security')">
+            <img src="./resource/secur.png" alt="Security Icon">
+            <span>Высокий уровень безопасности</span>
+          </div>
+          <div class="feature" onclick="showTip('billing')">
+            <img src="./resource/bill.png" alt="Billing Icon">
+            <span>Гибкая оплата (pay-as-you-go)</span>
+          </div>
+        </div>
+    
+        <div class="nav-buttons">
+          <button class="btn secondary" onclick="skip()">Пропустить обучение</button>
+          <button class="btn primary" onclick="nextScreen()">Далее</button>
+        </div>
+      </section>
+    
+      <section class="screen screen-3">
+        <div class="content">
+          <div class="instructions">
+            <h1>Как зарегистрироваться в AWS?</h1>
+            <ul>
+              <li>Перейдите на <strong>aws.amazon.com</strong></li>
+              <li>Нажмите «Создать аккаунт AWS»</li>
+              <li>Введите данные и подтвердите email</li>
+            </ul>
+          </div>
+          <div class="screenshot">
+            <img src="./resource/images/register.png" alt="Форма регистрации AWS">
+          </div>
+        </div>
+        
+        <div class="nav-buttons">
+          <button class="btn secondary" onclick="skip()">Пропустить обучение</button>
+          <button class="btn primary" onclick="nextScreen()">Далее</button>
+        </div>
+      </section>
+    
+      <section class="screen screen-4">
+        <h1>Основные сервисы AWS</h1>
+      
+        <div class="services">
+          <div class="card" onclick="showService('ec2')">
+            <img src="./resource/ec2.png" alt="EC2">
+            <h3>EC2</h3>
+          </div>
+          <div class="card" onclick="showService('s3')">
+            <img src="./resource/s3.png" alt="S3">
+            <h3>S3</h3>
+          </div>
+          <div class="card" onclick="showService('lambda')">
+            <img src="./resource/lambda.png" alt="Lambda">
+            <h3>Lambda</h3>
+          </div>
+        </div>
+      
+        <div class="diagram">
+          <span>EC2</span>
+          <span>→</span>
+          <span>S3</span>
+          <span>→</span>
+          <span>Lambda</span>
+        </div>
+      
+        <div class="nav-buttons">
+          <button class="btn secondary" onclick="skip()">Пропустить обучение</button>
+          <button class="btn primary" onclick="nextScreen()">Далее</button>
+        </div>
+      
+        <div id="serviceInfo" class="tooltip hidden"></div>
+      </section>
+    
+      <section class="screen screen-5">
+        <h1>Первый запуск EC2</h1>
+      
+        <div class="ec2-content">
+          <div class="steps">
+            <ol>
+              <li><strong>Выберите AMI</strong> (например, Amazon Linux)</li>
+              <li><strong>Укажите тип инстанса</strong> (например, t2.micro)</li>
+              <li><strong>Нажмите</strong> «Review and Launch»</li>
+            </ol>
+      
+            <div class="buttons">
+              <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/LaunchingAndUsingInstances.html" target="_blank" class="btn secondary">Попробовать</a>
+              <button class="btn primary" onclick="nextScreen()">Далее</button>
+            </div>
+          </div>
+      
+          <div class="screenshot">
+            <img src="./resource/ec2-launch.png" alt="EC2 Dashboard with Launch Instance">
+          </div>
+        </div>
+      </section>
+    
+      <section class="screen screen-6">
+        <h1>Настройка безопасности (IAM & VPC)</h1>
+        
+        <div class="iam-diagram">
+          <span class="arrow">↓</span>
+          <span class="user">Пользователь</span>
+          <span class="arrow">↓</span>
+          <span class="role">Роли</span>
+          <span class="arrow">↓</span>
+          <span class="policy">Политики</span>
+        </div>
+      
+        <div class="nav-buttons">
+          <button class="btn primary" onclick="nextScreen()">Далее</button>
+          <button class="btn secondary" onclick="openDocumentation()">📄 Документация IAM</button>
+        </div>
+      </section>
+    
+      <section class="screen screen-7">
+        <h1>Мониторинг и биллинг</h1>
+        
+        <div class="cloudwatch-screenshot">
+          <img src="./resource/metrics.png" alt="CloudWatch Screenshot">
+        </div>
+      
+        <div class="graph">
+          <h3>График использования процессора (CPU Usage)</h3>
+          <div class="graph-placeholder">
+            <div class="graph-bar" style="height: 40%; background-color: #0971d1;"></div>
+            <div class="graph-bar" style="height: 60%; background-color: #ff9900;"></div>
+          </div>
+        </div>
+      
+        <div class="nav-buttons">
+          <button class="btn secondary" onclick="showAlertModal()">Настроить алерты</button>
+          <button class="btn primary" onclick="nextScreen()">Завершить</button>
+        </div>
+      </section>
+      
+      <div id="alertModal" class="modal hidden">
+        <div class="modal-content">
+          <h2>Настройка алертов</h2>
+          <p>Вы можете настроить алерты для различных метрик.</p>
+          <button class="btn primary" onclick="closeModal()">Закрыть</button>
+        </div>
+      </div>
+    
+      <section class="screen screen-8">
+        <h1>✔️ Вы готовы к работе с AWS!</h1>
+        
+        <div class="cta-buttons">
+          <button class="btn primary" onclick="goToAWSConsole()">Перейти в AWS Console</button>
+          <button class="btn secondary" onclick="contactExpert()">Связаться с экспертом 💬</button>
+        </div>
+      </section>
+    
+      <div id="tooltip" class="tooltip hidden"></div>
+  <script src="script.js"></script>
+</body>
+</html>
